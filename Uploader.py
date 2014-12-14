@@ -13,9 +13,6 @@ class Uploader:
         self.product_not_upload_list = []
 
 
-
-
-
     def upload_product(self, product):
         """
 
@@ -54,20 +51,22 @@ class Uploader:
         # start uploading
         self.post(product)
 
+        return product
 
 
-    def is_featured_image_exist(product):
-        """
+    def is_featured_image_exist(self, product ):
+        '''
 
         :param product: Product
         :return:
-        """
+        '''
+
 
 
         return False
 
-    def is_product_image_exist(product):
-        
+    def is_product_image_exist(self, product):
+
         return False
 
     def get_full_path(self, image_name):

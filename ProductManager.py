@@ -3,17 +3,19 @@ import Product
 
 __author__ = 'Teerasej'
 
-class Preparer:
+class ProductManager:
 
-    def __init__(self):
-        pass
+    def __init__(self, username, password, sheet_name):
+        self.username = username
+        self.password = password
+        self.sheet_name = sheet_name
 
-    def get_products(self, username, password, sheet_name ):
+    def get_products(self):
 
-        gc = gspread.login(username, password)
+        gc = gspread.login(self.username, self.password)
         print 'Signed in... '
-        current_worksheet = gc.open(sheet_name).sheet1
-        print 'Accessed sheet: "' + sheet_name + '"'
+        current_worksheet = gc.open(self.sheet_name).sheet1
+        print 'Accessed sheet: "' + self.sheet_name + '"'
 
         rows = current_worksheet.get_all_values()
         print 'Total products: ' + len(rows) - 1
@@ -31,6 +33,7 @@ class Preparer:
 
         return products
 
-    def convert(self, row):
 
-        return
+
+    def update_product_info(self, processed_product):
+        pass
